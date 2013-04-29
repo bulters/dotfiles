@@ -1,0 +1,11 @@
+###
+# Holder config
+###
+color status green default
+
+set from = 'jeroen.bulters@holder.nl'
+set sendmail = '/usr/local/bin/msmtp -a holder'
+set sendmail_wait = 0
+unset record
+
+macro index A '<save-message>=holder.nl/Overig<enter>'

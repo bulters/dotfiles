@@ -1,0 +1,32 @@
+set sendmail = '/usr/local/bin/msmtp'
+set editor = 'vim'
+set edit_headers
+set mbox_type = Maildir
+set folder = ~/.mail
+set spoolfile = '+holder.nl/INBOX'
+set mail_check = 0
+unset move
+set delete
+unset confirmappend
+set quit
+unset mark_old
+set beep_new
+set realname = 'Jeroen Bulters'
+set reply_to
+set sort = threads
+set sort_aux = reverse-last-date-received
+mailboxes +holder.nl/INBOX
+
+# Load correct config on mailbox changes
+folder-hook holder.nl/* source ~/dotfiles/holder.muttrc
+
+# Macro's for switching between mailboxes.
+macro index,pager <f1> '<change-folder>=holder.nl/INBOX' 'Change to Holder mail'
+
+# Automagically view html mails
+auto_view text/html
+
+# Allow mutt to query contacts app for emails
+set query_command = 'contacts -Sf "%eTOKEN%n" "%s" | sed -e "s/TOKEN/\t/g"'
+bind editor <Tab> complete-query
+bind editor ^T    complete
