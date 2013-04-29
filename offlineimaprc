@@ -46,6 +46,7 @@ folderfilter = lambda folder: folder not in ['drafts', 'sent']
 [Repository Bulters-Remote]
 maxconnections = 1
 type = Gmail
+remotehost = imap.googlemail.com
 remoteuser = jeroen@bulte.rs
 sslcacertfile = ~/dotfiles/Equifax_Secure_CA.cert
 ssl=yes

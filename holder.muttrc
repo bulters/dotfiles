@@ -9,3 +9,5 @@ set sendmail_wait = 0
 unset record
 
 macro index A '<save-message>=holder.nl/archive<enter>'
+macro index,pager ga '<change-folder>=holder.nl/archive<enter>'
+macro index,pager gi '<change-folder>=holder.nl/INBOX<enter>'
