@@ -1,0 +1,9 @@
+###
+# Bulters config
+###
+color status red default
+
+set from = 'jeroen@bulte.rs'
+set sendmail = '/usr/local/bin/msmtp -a bulters'
+set sendmail_wait = 0
+unset record

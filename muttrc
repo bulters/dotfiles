@@ -19,9 +19,11 @@ mailboxes +holder.nl/INBOX
 
 # Load correct config on mailbox changes
 folder-hook holder.nl/* source ~/dotfiles/holder.muttrc
+folder-hook bulte.rs/* source ~/dotfiles/bulters.muttrc
 
 # Macro's for switching between mailboxes.
-macro index,pager <f1> '<change-folder>=holder.nl/INBOX' 'Change to Holder mail'
+macro index,pager <f1> '<change-folder>=holder.nl/INBOX<enter>' 'Change to Holder mail'
+macro index,pager <f2> '<change-folder>=bulte.rs/INBOX<enter>' 'Change to Bulters mail'
 
 # Automagically view html mails
 auto_view text/html

@@ -1,7 +1,7 @@
 ###
 # Holder config
 ###
-color status green default
+color status blue default
 
 set from = 'jeroen.bulters@holder.nl'
 set sendmail = '/usr/local/bin/msmtp -a holder'
