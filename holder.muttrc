@@ -8,4 +8,4 @@ set sendmail = '/usr/local/bin/msmtp -a holder'
 set sendmail_wait = 0
 unset record
 
-macro index A '<save-message>=holder.nl/Overig<enter>'
+macro index A '<save-message>=holder.nl/archive<enter>'
