@@ -30,3 +30,6 @@ auto_view text/html
 set query_command = 'contacts -Sf "%eTOKEN%n" "%s" | sed -e "s/TOKEN/\t/g"'
 bind editor <Tab> complete-query
 bind editor ^T    complete
+
+# Load colorscheme
+#source '~/dotfiles/colors.muttrc'
