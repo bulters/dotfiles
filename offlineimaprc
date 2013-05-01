@@ -40,8 +40,8 @@ localfolders = ~/.mail/bulte.rs
 nametrans = lambda folder : {'drafts' : '[Gmail]/Drafts',
 			     'sent'   : '[Gmail]/Sent Mail',
  			     'flagged': '[Gmail]/Starred',
-			     'trash'  : '[Gmail]/Trash'}.get(folder, folder)
-folderfilter = lambda folder: folder not in ['drafts', 'sent']
+			     'trash'  : '[Gmail]/Trash',
+			     'archive': '[Gmail]/All Mail'}.get(folder, folder)
 
 [Repository Bulters-Remote]
 maxconnections = 1
@@ -54,4 +54,4 @@ nametrans = lambda folder: {'[Gmail]/Drafts'   : 'drafts',
 			    '[Gmail]/Sent Mail': 'sent',
 			    '[Gmail]/Starred'  : 'flagged',
 			    '[Gmail]/Trash'    : 'trash'}.get(folder, folder)
-folderfilter = lambda folder: folder not in ['[Gmail]/Trash', '[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/Drafts', '[Gmail]/All Mail', '[Gmail]/Sent Mail']
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash', '[Gmail]/Important', '[Gmail]/Spam']
