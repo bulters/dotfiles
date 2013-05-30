@@ -6,21 +6,10 @@ fsync = False
 [Account Holder]
 localrepository = Holder-Local
 remoterepository = Holder-Remote
-status_backend = sqlite
 
 [Account Bulters]
 localrepository = Bulters-Local
 remoterepository = Bulters-Remote
-status_backend = sqlite
-
-[Repository Holder-Local]
-type = Maildir
-localfolders = ~/.mail/holder.nl
-nametrans = lambda folder : {'drafts' : '[Gmail]/Drafts',
-			     'sent'   : '[Gmail]/Sent Mail',
- 			     'flagged': '[Gmail]/Starred',
-			     'trash'  : '[Gmail]/Trash',
-			     'archive': '[Gmail]/All Mail'}.get(folder, folder)
 
 [Repository Holder-Remote]
 maxconnections = 1
@@ -28,20 +17,22 @@ type = Gmail
 remoteuser = jeroenbulters@holder.nl
 sslcacertfile = ~/dotfiles/Equifax_Secure_CA.cert
 ssl=yes
-nametrans = lambda folder: {'[Gmail]/Drafts'   : 'drafts',
-			    '[Gmail]/Sent Mail': 'sent',
-			    '[Gmail]/Starred'  : 'flagged',
-			    '[Gmail]/All Mail' : 'archive'}.get(folder, folder)
-folderfilter = lambda folder: folder not in ['[Gmail]/Trash', '[Gmail]/Important', '[Gmail]/Spam']
+nametrans = lambda folder: {
+  '[Gmail]/Drafts'   : 'drafts',
+  '[Gmail]/Sent Mail': 'sent',
+  '[Gmail]/Starred'  : 'flagged'}.get(folder, folder)
 
-[Repository Bulters-Local]
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash', '[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/All Mail']
+
+[Repository Holder-Local]
 type = Maildir
-localfolders = ~/.mail/bulte.rs
-nametrans = lambda folder : {'drafts' : '[Gmail]/Drafts',
-			     'sent'   : '[Gmail]/Sent Mail',
- 			     'flagged': '[Gmail]/Starred',
-			     'trash'  : '[Gmail]/Trash',
-			     'archive': '[Gmail]/All Mail'}.get(folder, folder)
+localfolders = ~/.mail/holder.nl
+nametrans = lambda folder : {
+  'drafts' : '[Gmail]/Drafts',
+  'sent'   : '[Gmail]/Sent Mail',
+  'flagged': '[Gmail]/Starred',
+  'trash'  : '[Gmail]/Trash',
+  'archive': '[Gmail]/All Mail'}.get(folder, folder)
 
 [Repository Bulters-Remote]
 maxconnections = 1
@@ -50,8 +41,18 @@ remotehost = imap.googlemail.com
 remoteuser = jeroen@bulte.rs
 sslcacertfile = ~/dotfiles/Equifax_Secure_CA.cert
 ssl=yes
-nametrans = lambda folder: {'[Gmail]/Drafts'   : 'drafts',
-			    '[Gmail]/Sent Mail': 'sent',
-			    '[Gmail]/Starred'  : 'flagged',
-			    '[Gmail]/Trash'    : 'trash'}.get(folder, folder)
-folderfilter = lambda folder: folder not in ['[Gmail]/Trash', '[Gmail]/Important', '[Gmail]/Spam']
+nametrans = lambda folder: {
+  '[Gmail]/Drafts'   : 'drafts',
+  '[Gmail]/Sent Mail': 'sent',
+  '[Gmail]/Starred'  : 'flagged',
+  '[Gmail]/All Mail' : 'archive'}.get(folder, folder)
+folderfilter = lambda folder: folder not in ['[Gmail]/Trash', '[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/All Mail']
+
+[Repository Bulters-Local]
+type = Maildir
+localfolders = ~/.mail/bulte.rs
+nametrans = lambda folder : {
+  'drafts' : '[Gmail]/Drafts',
+  'sent'   : '[Gmail]/Sent Mail',
+  'flagged': '[Gmail]/Starred',
+  'trash'  : '[Gmail]/Trash'}.get(folder, folder)

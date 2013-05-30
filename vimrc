@@ -117,3 +117,11 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " insert mode abbrev for sign. in emails
 iab <silent> <buffer> mvg, Met vriendelijke groet,<CR><CR>Jeroen Bulters<CR>Internetbureau Holder
+
+nmap <f1> :<enter>
+
+function Goformat()
+  let cur_line=line(".")
+  %!gofmt
+  call cursor(cur_line, 1)
+endfunction
